@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import OrderList from "./pages/OrderList";
+import MenuItemsList from "./pages/MenuItemsList";
+import { useState } from "react";
+import OrderSummary from "./pages/OrderSummary";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [currentPage, setCurrentPage] = useState("MenuItemsList");
+
+	const navigateTo = (page) => {
+		setCurrentPage(page);
+	};
+
+	let pageComponent;
+
+	switch (currentPage) {
+		case "MenuItemsList":
+			pageComponent = <MenuItemsList navigateTo={navigateTo} />;
+			break;
+		case "OrderList":
+			pageComponent = <OrderList navigateTo={navigateTo} />;
+			break;
+		case "OrderSummary":
+			pageComponent = <OrderSummary navigateTo={navigateTo} />;
+			break;
+
+		default:
+			pageComponent = <MenuItemsList navigateTo={navigateTo} />;
+			break;
+	}
+
+	return <main>{pageComponent}</main>;
 }
 
 export default App;
