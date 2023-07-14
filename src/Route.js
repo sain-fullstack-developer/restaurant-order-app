@@ -3,7 +3,7 @@ import MenuItemsList from "./pages/MenuItemsList";
 import { useState } from "react";
 import OrderSummary from "./pages/OrderSummary";
 
-function App() {
+function Route() {
 	const [currentPage, setCurrentPage] = useState("MenuItemsList");
 
 	const navigateTo = (page) => {
@@ -31,4 +31,4 @@ function App() {
 	return <main>{pageComponent}</main>;
 }
 
-export default App;
+export default Route;

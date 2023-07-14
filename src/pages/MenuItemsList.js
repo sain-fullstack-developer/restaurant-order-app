@@ -16,9 +16,7 @@ function MenuItemsList({ navigateTo }) {
 		fetchApiData();
 	}, []);
 
-	console.log("data", data);
-
-	const localData = JSON.parse(localStorage.getItem("order-list"));
+	JSON.parse(localStorage.getItem("order-list"));
 
 	return (
 		<div className="bg-green-400 text-white min-h-screen p-4 relative">
@@ -39,8 +37,6 @@ function MenuItemsList({ navigateTo }) {
 								if (!orderList) {
 									orderList = [];
 								}
-								const orderListId = orderList.map((list, id) => list.id);
-								console.log(orderListId);
 								orderList.push(list);
 								localStorage.setItem("order-list", JSON.stringify(orderList));
 								setSelectAll(true);
@@ -54,7 +50,7 @@ function MenuItemsList({ navigateTo }) {
 					onClick={() => {
 						navigateTo("OrderList");
 					}}
-					className="bg-amber-950 fixed top-24 right-4 hover:scale-105 p-1 px-2 outline-none text-white rounded-full text-sm font-medium">
+					className="bg-amber-950 animate-bounce fixed top-24 right-4 hover:scale-105 p-1 px-2 outline-none text-white rounded-full text-sm font-medium">
 					{`View Selected Items`}
 				</button>
 			)}

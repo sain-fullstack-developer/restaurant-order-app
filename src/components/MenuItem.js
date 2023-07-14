@@ -17,7 +17,9 @@ const MenuItem = (props) => {
 				{data.description}
 			</p>
 			<p className="mb-2 font-bold text-md text-amber-900 tracking-wider flex justify-between">
-				PRICE: {data.price}rs
+				<div>
+					PRICE: <span className="text-lg">{data.price}RS</span>
+				</div>
 				<button
 					onClick={handleSelectClick}
 					className="bg-amber-950 hover:scale-105 p-1 px-2 outline-none text-white rounded-full text-sm font-medium">
