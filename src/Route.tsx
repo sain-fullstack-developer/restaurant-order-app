@@ -1,3 +1,4 @@
+import React from "react";
 import OrderList from "./pages/OrderList";
 import MenuItemsList from "./pages/MenuItemsList";
 import { useState } from "react";
@@ -6,7 +7,7 @@ import OrderSummary from "./pages/OrderSummary";
 function Route() {
 	const [currentPage, setCurrentPage] = useState("MenuItemsList");
 
-	const navigateTo = (page) => {
+	const navigateTo = (page: string) => {
 		setCurrentPage(page);
 	};
 

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import OrderSummaryItem from "../components/OrderSummaryItem";
 
-const OrderSummary = ({ navigateTo }) => {
-	const data = JSON.parse(localStorage.getItem("order-summary"));
+interface OrderSummaryTypes {
+	navigateTo: (page: string) => void;
+}
+
+const OrderSummary: FC<OrderSummaryTypes> = ({ navigateTo }) => {
+	const data: any[] = JSON.parse(
+		localStorage.getItem("order-summary") as string
+	);
 	const time = new Date();
 	const estTime = time.toLocaleString();
 
-	const totalAmount = data.reduce((total, item) => {
+	const totalAmount = data.reduce((total: number, item: { price: number }) => {
 		return total + item.price;
 	}, 0);
 

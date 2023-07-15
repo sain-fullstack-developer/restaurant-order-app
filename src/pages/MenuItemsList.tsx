@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import axios from "axios";
 import MenuItem from "../components/MenuItem";
 
-function MenuItemsList({ navigateTo }) {
+interface MenuItemsListTypes {
+	navigateTo: (page: string) => void;
+}
+
+const MenuItemsList: FC<MenuItemsListTypes> = ({ navigateTo }) => {
 	const [data, setData] = useState([]);
 	const [selectAll, setSelectAll] = useState(false);
 
@@ -16,7 +20,7 @@ function MenuItemsList({ navigateTo }) {
 		fetchApiData();
 	}, []);
 
-	JSON.parse(localStorage.getItem("order-list"));
+	JSON.parse(localStorage.getItem("order-list") as string);
 
 	return (
 		<div className="bg-green-400 text-white min-h-screen p-4 relative">
@@ -33,7 +37,9 @@ function MenuItemsList({ navigateTo }) {
 							key={index}
 							data={list}
 							handleSelectClick={async () => {
-								let orderList = JSON.parse(localStorage.getItem("order-list"));
+								let orderList = JSON.parse(
+									localStorage.getItem("order-list") as string
+								);
 								if (!orderList) {
 									orderList = [];
 								}
@@ -56,6 +62,6 @@ function MenuItemsList({ navigateTo }) {
 			)}
 		</div>
 	);
-}
+};
 
 export default MenuItemsList;

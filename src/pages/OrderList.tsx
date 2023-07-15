@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import OrderListItem from "../components/OrderListItem";
 
-const OrderList = ({ navigateTo }) => {
-	const [updatedArr, setUpdatedArr] = useState([]);
-	const data = JSON.parse(localStorage.getItem("order-list"));
-	const seen = {};
-	const filteredArrayList = [];
+interface OrderListTypes {
+	navigateTo: (page: string) => void;
+}
+
+const OrderList: FC<OrderListTypes> = ({ navigateTo }) => {
+	const [updatedArr, setUpdatedArr] = useState<Object[]>([]);
+	const data = JSON.parse(localStorage.getItem("order-list") as string);
+	const seen: { [key: string]: boolean } = {};
+	const filteredArrayList: any[] = [];
 
 	for (const element of data) {
 		const key = JSON.stringify(element);
@@ -15,11 +19,14 @@ const OrderList = ({ navigateTo }) => {
 		}
 	}
 
-	const handleQuantityChange = (index, newQuantity, data) => {
+	const handleQuantityChange = (
+		index: number,
+		newQuantity: number,
+		data: any
+	) => {
 		setUpdatedArr((prevArr) => {
 			const updatedItem = {
 				...prevArr[index],
-
 				name: data.name,
 				quantity: newQuantity,
 				price: data.price * newQuantity,

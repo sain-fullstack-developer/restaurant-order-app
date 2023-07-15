@@ -1,6 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
-const MenuItem = (props) => {
+interface MenuItemsProps {
+	data: { name: string; image_url: string; description: string; price: number };
+	handleSelectClick: () => void;
+}
+
+const MenuItem: FC<MenuItemsProps> = (props) => {
 	const { data, handleSelectClick } = props;
 
 	return (
