@@ -1,6 +1,6 @@
 # About Application
 
-The restaurant app is a web app that allows users to order food from a restaurant. The app is built using React JS and Tailwind CSS. The home page of the app consists of a list of dishes from the restaurant menu. Users can select the dishes they want to order and then navigate to a page where they can select the quantity of each dish. Once the order is placed, the user is taken to a page with a summary of the order, including the dishes ordered, the quantity of each dish, and the total amount.
+The restaurant app is a web app that allows users to order food from a restaurant. The app is built using React JS, Typescript and Tailwind CSS. The home page of the app consists of a list of dishes from the restaurant menu. Users can select the dishes they want to order and then navigate to a page where they can select the quantity of each dish. Once the order is placed, the user is taken to a page with a summary of the order, including the dishes ordered, the quantity of each dish, and the total amount.
 
 # Getting Started
 
